@@ -98,7 +98,7 @@ class ArrayMatrix:
         column: int = BOARD_SIZE_SQUARED
 
         for row in range(EXACT_COVER_MATRIX_ROWS):
-            if row % BOARD_SIZE_SQUARED == 0 & row > 1:
+            if row % BOARD_SIZE_SQUARED == 0 and row > 1:
                 pullback += BOARD_SIZE
 
             if column % BOARD_SIZE == 0:
@@ -114,11 +114,11 @@ class ArrayMatrix:
         column: int = board_size_squared_times_three
 
         for row in range(EXACT_COVER_MATRIX_ROWS):
-            if row % (BOARD_SIZE_SQUARED * SQRT_BOARD_SIZE) == 0 & row > 1:
+            if row % (BOARD_SIZE_SQUARED * SQRT_BOARD_SIZE) == 0 and row > 1:
                 pullback += BOARD_SIZE
-            elif row % BOARD_SIZE_SQUARED == 0 & row > 1:
+            elif row % BOARD_SIZE_SQUARED == 0 and row > 1:
                 pullback -= BOARD_SIZE * (SQRT_BOARD_SIZE - 1)
-            elif row % (BOARD_SIZE * SQRT_BOARD_SIZE) == 0 & row > 1:
+            elif row % (BOARD_SIZE * SQRT_BOARD_SIZE) == 0 and row > 1:
                 pullback += BOARD_SIZE
 
             if column % BOARD_SIZE == 0:

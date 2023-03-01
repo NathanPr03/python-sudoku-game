@@ -1,5 +1,7 @@
 import empty_nine_by_nine_cover_matrix
 from array_matrix import ArrayMatrix
+from node import Node
+from node_matrix import NodeMatrix
 
 
 def print_hi(name):
@@ -18,18 +20,24 @@ if __name__ == '__main__':
                          [2, 8, 7, 4, 1, 9, 6, 3, 5],
                          [3, 4, 5, 2, 8, 6, 1, 7, 9]]
 
-    board: list[list] = [[0, 0, 0, 0, 0, 0, 0, 5, 0],
-                         [2, 0, 7, 0, 0, 9, 0, 0, 0],
-                         [6, 0, 0, 3, 5, 1, 0, 0, 0],
-                         [5, 0, 0, 0, 0, 0, 0, 1, 0],
-                         [0, 0, 3, 0, 0, 0, 0, 0, 8],
-                         [0, 0, 0, 8, 2, 0, 5, 3, 0],
-                         [0, 0, 0, 0, 7, 0, 8, 0, 4],
-                         [0, 0, 6, 2, 0, 0, 0, 0, 0],
-                         [0, 8, 0, 0, 0, 0, 7, 0, 0]]
+    # board: list[list] = [[0, 0, 0, 0, 0, 0, 0, 5, 0],
+    #                      [2, 0, 7, 0, 0, 9, 0, 0, 0],
+    #                      [6, 0, 0, 3, 5, 1, 0, 0, 0],
+    #                      [5, 0, 0, 0, 0, 0, 0, 1, 0],
+    #                      [0, 0, 3, 0, 0, 0, 0, 0, 8],
+    #                      [0, 0, 0, 8, 2, 0, 5, 3, 0],
+    #                      [0, 0, 0, 0, 7, 0, 8, 0, 4],
+    #                      [0, 0, 6, 2, 0, 0, 0, 0, 0],
+    #                      [0, 8, 0, 0, 0, 0, 7, 0, 0]]
 
     cover_matrix: list[list] = empty_nine_by_nine_cover_matrix.nine_by_nine_cover_matrix()
 
     array_matrix = ArrayMatrix(cover_matrix)
     array_matrix.build_sparse_matrix(board)
-    array_matrix.pretty_print()
+    # array_matrix.pretty_print()
+
+    node_matrix = NodeMatrix()
+    root: Node = node_matrix.create_sparse_matrix(cover_matrix)
+    node_matrix.solve(0)
+
+    hi = 'he'
